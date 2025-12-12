@@ -9,11 +9,11 @@ from transformers import pipeline
 import google.generativeai as genai
 
 # --- 1. CONFIGURATION ---
-# PENTING: GANTI DENGAN API KEY GEMINI KAMU JIKA PUNYA
+# API KEY GEMINI
 GEMINI_API_KEY = "MASUKKAN_API_KEY_GEMINI_DISINI" 
 
 # DATABASE CONFIG
-# Menggunakan SQLite agar tidak perlu install PostgreSQL (Portable untuk demo)
+# Menggunakan SQLite
 DATABASE_URL = "sqlite:///./reviews.db" 
 
 # --- 2. SETUP DATABASE ---
@@ -34,7 +34,6 @@ Base.metadata.create_all(bind=engine)
 print("Loading AI Models... (Mungkin butuh waktu saat pertama kali jalan)")
 
 # GANTI MODEL KE MULTILINGUAL (Bisa Indo & Inggris)
-# Model ini akan didownload otomatis saat pertama kali aplikasi dijalankan (~400MB)
 sentiment_analyzer = pipeline("sentiment-analysis", model="lxyuan/distilbert-base-multilingual-cased-sentiments-student")
 
 # Setup Gemini
